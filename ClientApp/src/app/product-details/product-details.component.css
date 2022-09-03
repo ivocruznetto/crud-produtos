@@ -1,0 +1,68 @@
+.container {
+    display: flex;
+    margin: 38px auto;
+    max-width: 720px;
+    padding: 10px;
+    box-shadow: 0 0 1px 1px #e2e2e2;
+    border-radius: 17px;
+}
+
+.cnt-image {
+    padding: 10px;
+}
+
+.cnt-image img {
+    max-width: 340px;
+}
+
+.cnt-info {
+    padding: 25px;
+    margin: 50px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.info-desc .desc-title {
+    font-size: 14px;
+}
+
+.info-desc {
+    color: #797979;
+}
+
+.info-price {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.info-installments {}
+
+hr {
+    margin: 2px 0;
+}
+
+.cnt-button {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.btn {
+    text-align: center;
+    width: 100px;
+    border: none;
+}
+
+.btn-buy {
+    width: 60%;
+    background: #ea411f;
+}

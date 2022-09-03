@@ -17,7 +17,7 @@ export class AddEditProductComponent implements OnInit {
   id: number = 0;
   productName: string = '';
   productDescription: string = '';
-  imageUrl: string = '';
+  imageUrl: any;
   status: boolean = true;
   stock: number = 0;
   price: number = 0;
@@ -32,32 +32,42 @@ export class AddEditProductComponent implements OnInit {
     this.price = this.product.price;
   }
 
+  handleUpload(event: any) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imageUrl = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  }
+
   addProduct() {
     var product = {
-      // status: this.status,
+      status: true,
       productName: this.productName,
       productDescription: this.productDescription,
       price: this.price,
-      stock: this.stock
+      stock: this.stock,
+      imageUrl: this.imageUrl
     }
-    console.log(product);
-    this.service.addProducts(product).subscribe(res => {
-      var closeModalBtn = document.getElementById('add-edit-modal-close');
-      if (closeModalBtn) {
-        closeModalBtn.click();
-      }
-
-      var showAddSuccess = document.getElementById('add-success-alert');
-      if (showAddSuccess) {
-        showAddSuccess.style.display = "block";
-      }
-
-      setTimeout(() => {
-        if (showAddSuccess) {
-          showAddSuccess.style.display = "none";
+      this.service.addProducts(product).subscribe(res => {
+        var closeModalBtn = document.getElementById('add-edit-modal-close');
+        if (closeModalBtn) {
+          closeModalBtn.click();
         }
-      }, 3000);
-    })
+
+        var showAddSuccess = document.getElementById('add-success-alert');
+        if (showAddSuccess) {
+          showAddSuccess.style.display = "block";
+        }
+
+        setTimeout(() => {
+          if (showAddSuccess) {
+            showAddSuccess.style.display = "none";
+          }
+        }, 3000);
+      }, err =>
+        alert('Erro: verifique se preencheu os campos corretamente')
+      )
 
   }
 
@@ -71,7 +81,7 @@ export class AddEditProductComponent implements OnInit {
       price: this.price,
       imageUrl: this.imageUrl
     }
-    var id:number = this.id;
+    var id: number = this.id;
     this.service.updateProducts(id, product).subscribe(res => {
       var closeModalBtn = document.getElementById('add-edit-modal-close');
       if (closeModalBtn) {
@@ -88,7 +98,9 @@ export class AddEditProductComponent implements OnInit {
           showUpdateSuccess.style.display = "none";
         }
       }, 3000);
-    })
+    }, err =>
+      alert('Erro: verifique se preencheu os campos corretamente')
+    )
 
   }
 

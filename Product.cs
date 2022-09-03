@@ -11,8 +11,6 @@ namespace jetWebApi
         [StringLength(200)]
         public string ProductDescription { get; set; } = string.Empty;
         public string ImageUrl { get; set; } = string.Empty;
-        [NotMapped]
-        public IFormFile? ImageFile { get; set; } 
         public int Stock { get; set; }
         public bool Status { get; set; }
         public decimal Price { get; set; }

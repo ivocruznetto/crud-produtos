@@ -12,6 +12,7 @@ import { AddEditProductComponent } from '../add-edit-product/add-edit-product.co
 export class ShowProductsComponent implements OnInit {
 
   listProducts!: any;
+  listProductsScreen!: any;
 
   constructor(
     private service: ProductsApiService,
@@ -28,7 +29,7 @@ export class ShowProductsComponent implements OnInit {
   getProductsList() {
     this.service.getProductsList().subscribe(
       (res: any) => {
-        this.listProducts = res;
+        this.listProducts = this.listProductsScreen = res;
       }
     );
   }
@@ -72,8 +73,18 @@ export class ShowProductsComponent implements OnInit {
             showDeleteSuccess.style.display = "none";
           }
         }, 3000);
-      })
+      }, err =>
+        alert(`Erro: ${err} - Tente novamente`)
+      )
     }
+  }
+
+  alterStatus(product:any) {
+    product.status = !product.status;
+    this.service.updateProducts(product.id, product).subscribe((res) => {
+      }, err =>
+        alert(`Erro: ${err} - Tente novamente`)
+    )
   }
 
   modalClose() {

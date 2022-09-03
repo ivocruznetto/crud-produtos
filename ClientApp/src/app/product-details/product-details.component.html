@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="cnt-image">
+        <img [src]="product.imageUrl" alt="imagem-produto">
+    </div>
+    <div class="cnt-info">
+        <div class="info">
+            <span class="info-name">{{product.productName}}</span>
+            <span class="info-desc">
+        <div class="desc-title">
+          Descrição
+        </div>
+        <hr>
+        {{product.productDescription}}
+      </span>
+            <span class="info-price">{{product.price | currency: 'BRL'}}</span>
+            <span class="info-installments">10x <b>sem juros</b> de {{product.installments | currency: 'BRL'}}</span>
+        </div>
+        <div class="cnt-button">
+            <button type="button" class="btn btn-primary float-end m-2" [routerLink]="['../']" routerLinkActive="router-link-active">
+              Voltar
+            </button>
+            <button type="button" class="btn btn-buy btn-primary float-end m-2" [routerLink]="['../']" routerLinkActive="router-link-active">
+              Comprar
+            </button>
+        </div>
+    </div>

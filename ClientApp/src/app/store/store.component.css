@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.cnt-products {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    align-items: center;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 4 - 12px);
+    background: #fff;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+    position: relative;
+}
+
+.product img {
+    width: 160px;
+}
+
+a {
+    text-decoration: none !important;
+    color: #000 !important;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name {
+    font-size: 15px;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.installments {
+    font-size: 10px;
+}
