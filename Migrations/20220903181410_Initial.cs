@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace jetWebApi.Migrations
+namespace jet.Migrations
 {
     public partial class Initial : Migration
     {

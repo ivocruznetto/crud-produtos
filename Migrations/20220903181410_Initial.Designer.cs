@@ -8,10 +8,10 @@ using jetWebApi.Data;
 
 #nullable disable
 
-namespace jetWebApi.Migrations
+namespace jet.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220830041624_Initial")]
+    [Migration("20220903181410_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

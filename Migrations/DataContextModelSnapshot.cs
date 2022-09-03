@@ -7,7 +7,7 @@ using jetWebApi.Data;
 
 #nullable disable
 
-namespace jetWebApi.Migrations
+namespace jet.Migrations
 {
     [DbContext(typeof(DataContext))]
     partial class DataContextModelSnapshot : ModelSnapshot
