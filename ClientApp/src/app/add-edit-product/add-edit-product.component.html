@@ -19,7 +19,7 @@
     </div>
     <div class="mb-3">
         <label for="imageUrl" class="form-label">Imagem</label>
-        <input type="file" class="form-control" [(ngModel)]="imageUrl" name="Imagem" (change)="handleUpload($event)">
+        <input type="file" class="form-control" name="Imagem" (change)="handleUpload($event)">
     </div>
     <button (click)="addProduct() " *ngIf="this.product?.id==0" class="btn btn-primary">
     Adicionar

@@ -18,6 +18,9 @@ export class ProductsApiService {
   getProductById(id: number): Observable<any> {
     return this.http.get<any>(this.productsAPIUrl + `/products/${id}`);
   }
+  getProductByStatus(status: boolean): Observable<any[]> {
+    return this.http.get<any>(this.productsAPIUrl + `/products/status/${status}`);
+  }
 
   addProducts(data: any) {
     return this.http.post(this.productsAPIUrl + '/products', data);

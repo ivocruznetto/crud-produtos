@@ -36,6 +36,12 @@ namespace jetWebApi.Controllers
             return product;
         }
 
+        [HttpGet("status/{status}")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductByStatus(Boolean status)
+        {
+            return await _context.Products.Where(p => p.Status == status).ToListAsync();
+        }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProducts(int id, Product product)
         {

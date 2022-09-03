@@ -4,20 +4,26 @@
       Ver lista de produtos
     </button>
     </div>
-    <div class="cnt-products">
-        <a class="product" *ngFor="let item of listProducts" [routerLink]="[item.id]" routerLinkActive="router-link-active">
-            <img [src]="item.imageUrl" alt="imagem-produto">
-            <div class="product-info">
-                <span class="product-name">
+    <ng-container *ngIf="listProducts?.length > 0; else elseTemplate">
+        <div class="cnt-products">
+            <a class="product" *ngFor="let item of listProducts" [routerLink]="[item.id]" routerLinkActive="router-link-active">
+                <img [src]="item.imageUrl" alt="imagem-produto">
+                <div class="product-info">
+                    <span class="product-name">
                 {{item.productName}}
               </span>
-                <span class="price">
+                    <span class="price">
                 {{ item.price | currency: 'BRL' }}
               </span>
-                <span class="installments">
+                    <span class="installments">
                 10x <b>sem juros</b> de {{ item.installments | currency: 'BRL' }}
               </span>
-            </div>
-        </a>
-    </div>
+                </div>
+            </a>
+        </div>
+    </ng-container>
+    <ng-template #elseTemplate>
+        Não há produtos disponíveis no momento.
+    </ng-template>
+
 </div>

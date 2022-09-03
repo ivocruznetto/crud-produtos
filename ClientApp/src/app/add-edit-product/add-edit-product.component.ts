@@ -49,25 +49,25 @@ export class AddEditProductComponent implements OnInit {
       stock: this.stock,
       imageUrl: this.imageUrl
     }
-      this.service.addProducts(product).subscribe(res => {
-        var closeModalBtn = document.getElementById('add-edit-modal-close');
-        if (closeModalBtn) {
-          closeModalBtn.click();
-        }
+    this.service.addProducts(product).subscribe(res => {
+      var closeModalBtn = document.getElementById('add-edit-modal-close');
+      if (closeModalBtn) {
+        closeModalBtn.click();
+      }
 
-        var showAddSuccess = document.getElementById('add-success-alert');
+      var showAddSuccess = document.getElementById('add-success-alert');
+      if (showAddSuccess) {
+        showAddSuccess.style.display = "block";
+      }
+
+      setTimeout(() => {
         if (showAddSuccess) {
-          showAddSuccess.style.display = "block";
+          showAddSuccess.style.display = "none";
         }
-
-        setTimeout(() => {
-          if (showAddSuccess) {
-            showAddSuccess.style.display = "none";
-          }
-        }, 3000);
-      }, err =>
-        alert('Erro: verifique se preencheu os campos corretamente')
-      )
+      }, 3000);
+    }, err =>
+      alert('Erro: verifique se preencheu os campos corretamente')
+    )
 
   }
 

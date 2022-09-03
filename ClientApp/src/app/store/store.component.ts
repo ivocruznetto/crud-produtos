@@ -15,14 +15,14 @@ export class StoreComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getProductsList();
+    this.getProductByStatus();
   }
 
-  getProductsList() {
-    this.service.getProductsList().subscribe(
+  getProductByStatus() {
+    var status = true;
+    this.service.getProductByStatus(status).subscribe(
       (res: any) => {
         this.listProducts = res;
-        this.listProducts = this.listProducts.filter((x: any) => x.status === true);
         this.listProducts.map((x: any) => x.installments = x.price / 10.00);
       }
     );
